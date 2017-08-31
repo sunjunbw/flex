@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0;user-scalabe=no" />
+		<style>
+			html,body{
+				width:100%;
+				height: 100%;
+			}
+			body{
+				margin:0;
+			}
+			.box{
+				height: 50%;
+				background: #ccc;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box" id="box">
+			aaaaa
+		</div>
+		<script>
+			 var box=document.getElementById("box");
+//			 box.onclick=function(){  //会有延迟 300ms
+//			 	alert(this.innerHTML);
+//			 }
+//			box.addEventListener("click",function(){
+//				alert(this.innerHTML);
+//			})
+
+            //touchstart touchmove touchend
+			
+			box.addEventListener("touchstart",function(e){
+				//box.innerHTML=e.touches.length;   /* 屏幕上的点的集合 */
+				//box.innerHTML=e.targetTouches.length; /*  目标对象触摸点的集合 */
+				box.innerHTML=e.changedTouches.length;  /* 涉及当前事件的触摸点的集合  */
+				console.log("touchstart");
+			})
+			box.addEventListener("touchmove",function(){
+				console.log("touchmove");
+			})
+			box.addEventListener("touchend",function(){
+				console.log("touchend");
+			})
+		</script>
+	</body>
+</html>
